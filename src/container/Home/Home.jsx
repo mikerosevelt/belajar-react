@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import YoutubeComp from '../../component/YoutubeComponent/YoutubeComp';
-import Product from '../Product/Product';
+// import YoutubeComp from '../../component/YoutubeComponent/YoutubeComp';
+// import Product from '../Product/Product';
+// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
+import BlogPost from '../BlogPost/BlogPost';
 
 class Home extends Component {
     render() {
         return (
             <div>
-                <p>Youtube Component</p>
+                {/* <p>Youtube Component</p>
                 <hr />
                 <YoutubeComp title="Video 1" desc="ini video 1" />
                 <YoutubeComp title="Video 2" desc="ini video 2" />
@@ -15,7 +17,13 @@ class Home extends Component {
                 <YoutubeComp />
                 <p>Counter</p>
                 <hr />
-                <Product />
+                <Product /> */}
+                {/* <p>LifeCycle Component</p>
+                <hr />
+                <LifeCycleComp /> */}
+                <p>Blog Post</p>
+                <hr />
+                <BlogPost />
             </div>
 
         )
