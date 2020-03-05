@@ -11,7 +11,10 @@ class LifeCycleComp extends Component {
 
     render() {
         return (
-            <button className="btn"> Component Button</button>
+            <div>
+                <p>LifeCycle Component</p>
+                <button className="btn"> Component Button</button>
+            </div>
         )
     }
 }

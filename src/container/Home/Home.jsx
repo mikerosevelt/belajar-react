@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
-// import YoutubeComp from '../../component/YoutubeComponent/YoutubeComp';
-// import Product from '../Product/Product';
-// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
+import React, { Component, Fragment } from 'react';
+import YoutubeComp from '../../component/YoutubeComponent/YoutubeComp';
+import Product from '../Product/Product';
+import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
 import BlogPost from '../BlogPost/BlogPost';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import './Home.css';
+import YoutubeCompPage from '../pages/YoutubeComp/YoututbeCompPage';
 
 class Home extends Component {
+    state = {
+        showComponent: true
+    }
     render() {
         return (
-            <div>
-                {/* <p>Youtube Component</p>
-                <hr />
-                <YoutubeComp title="Video 1" desc="ini video 1" />
-                <YoutubeComp title="Video 2" desc="ini video 2" />
-                <YoutubeComp title="Video 3" desc="ini video 3" />
-                <YoutubeComp title="Video 4" desc="ini video 4" />
-                <YoutubeComp />
-                <p>Counter</p>
-                <hr />
-                <Product /> */}
-                {/* <p>LifeCycle Component</p>
-                <hr />
-                <LifeCycleComp /> */}
-                <p>Blog Post</p>
-                <hr />
-                <BlogPost />
-            </div>
+            <BrowserRouter>
+                <Fragment>
+                    <div className="navigation">
+                        <Link to="/">Home</Link><Link to="/product">Product</Link>
+                        <Link to="/lifecycle">LifeCycle</Link>
+                        <Link to="/youtubecomp">YoutubeCompPage</Link>
+                    </div>
 
+                    <Route path="/" exact component={BlogPost} />
+                    <Route path="/product" component={Product} />
+                    <Route path="/lifecycle" component={LifeCycleComp} />
+                    <Route path="/youtubecomp" component={YoutubeCompPage} />
+                </Fragment>
+            </BrowserRouter>
         )
     }
 }
