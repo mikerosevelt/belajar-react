@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import YoutubeComp from '../../component/YoutubeComponent/YoutubeComp';
 import Product from '../Product/Product';
 import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
 import BlogPost from '../BlogPost/BlogPost';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './Home.css';
-import YoutubeCompPage from '../pages/YoutubeComp/YoututbeCompPage';
+import YoutubeCompPage from '../pages/YoutubeComp/YoutubeCompPage';
 
 class Home extends Component {
     state = {
@@ -13,7 +12,7 @@ class Home extends Component {
     }
     render() {
         return (
-            <BrowserRouter>
+            <Router>
                 <Fragment>
                     <div className="navigation">
                         <Link to="/">Home</Link><Link to="/product">Product</Link>
@@ -26,7 +25,7 @@ class Home extends Component {
                     <Route path="/lifecycle" component={LifeCycleComp} />
                     <Route path="/youtubecomp" component={YoutubeCompPage} />
                 </Fragment>
-            </BrowserRouter>
+            </Router>
         )
     }
 }
