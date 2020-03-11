@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './BlogPost.css';
-import Post from '../../component/Post/Post';
+import Post from '../../../component/Post/Post';
 import axios from 'axios';
 
 class BlogPost extends Component {
@@ -87,6 +87,10 @@ class BlogPost extends Component {
         }
     }
 
+    handleDetail = (id) => {
+        this.props.history.push(`/detail-post/${id}`);
+    }
+
     handleUpdate = (data) => {
         this.setState({
             formBlogPost: data,
@@ -120,7 +124,7 @@ class BlogPost extends Component {
                 </div>
                 {
                     this.state.post.map(post => {
-                        return <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} />
+                        return <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} goDetail={this.handleDetail} />
                     })
                 }
             </Fragment>
