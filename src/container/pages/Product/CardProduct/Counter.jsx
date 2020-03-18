@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { RootContext } from '../../../Home/Home';
+// import { RootContext } from '../../../Home/Home';
+import { GlobalConsumer } from '../../../../context/context';
 // import { connect } from 'react-redux'
 // import ActionType from '../../../../redux/reducer/globalActionType';
 
-
 class Counter extends Component {
     /*
-    WITHOUT STATE MANAGEMENT
+    * WITHOUT STATE MANAGEMENT
     */
     // state = {
     //     order: 4
@@ -36,25 +36,17 @@ class Counter extends Component {
     // }
     render() {
         return (
-            <RootContext.Consumer>
-                {
-                    value => {
-                        return (
-                            <div className="counter">
-                                <button className="minus" onClick={() => value.dispatch({ type: 'MINUS_ORDER' })}>-</button>
-                                <input className="text-count" type="text" value={value.state.totalOrder} />
-                                <button className="plus" onClick={() => value.dispatch({ type: 'PLUS_ORDER' })}>+</button>
-                            </div>
-                        )
-                    }
-                }
-            </RootContext.Consumer>
+            <div className="counter">
+                <button className="minus" onClick={() => this.props.dispatch({ type: 'MINUS_ORDER' })}>-</button>
+                <input className="text-count" type="text" value={this.props.state.totalOrder} />
+                <button className="plus" onClick={() => this.props.dispatch({ type: 'PLUS_ORDER' })}>+</button>
+            </div>
         )
     }
 }
 
 /*
-USING CONTEXT
+* USING CONTEXT
 */
 
 
@@ -77,4 +69,4 @@ USING REDUX
 // }
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-export default Counter;
+export default GlobalConsumer(Counter);

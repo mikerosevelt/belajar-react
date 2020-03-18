@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import './Product.css';
 import CardProduct from '../Product/CardProduct/CardProduct';
-import { RootContext } from '../../Home/Home';
+// import { RootContext } from '../../Home/Home';
+import { GlobalConsumer } from '../../../context/context';
 // import { connect } from 'react-redux'
 
 class Product extends Component {
@@ -17,28 +18,20 @@ class Product extends Component {
 
     render() {
         return (
-            <RootContext.Consumer>
-                {
-                    value => {
-                        return (
-                            <Fragment>
-                                <p>Product Page</p>
-                                <hr />
-                                <div className="header">
-                                    <div className="logo">
-                                        <img src="https://etanee.id/img/content/img_logo_etanee_white.png" alt="" />
-                                    </div>
-                                    <div className="troley">
-                                        <img src="https://etanee.id/img/icon/ic_cart_white.svg" alt="" />
-                                        <div className="count">{value.state.totalOrder}</div>
-                                    </div>
-                                </div>
-                                <CardProduct />
-                            </Fragment>
-                        )
-                    }
-                }
-            </RootContext.Consumer>
+            <Fragment>
+                <p>Product Page</p>
+                <hr />
+                <div className="header">
+                    <div className="logo">
+                        <img src="https://etanee.id/img/content/img_logo_etanee_white.png" alt="" />
+                    </div>
+                    <div className="troley">
+                        <img src="https://etanee.id/img/icon/ic_cart_white.svg" alt="" />
+                        <div className="count">{this.props.state.totalOrder}</div>
+                    </div>
+                </div>
+                <CardProduct />
+            </Fragment>
         );
     }
 }
@@ -50,4 +43,4 @@ class Product extends Component {
 // }
 
 // export default connect(mapStateToProps)(Product);
-export default Product;
+export default GlobalConsumer(Product);
