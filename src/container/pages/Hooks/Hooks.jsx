@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hooks.css';
 
 // export class Hooks extends Component {
@@ -23,6 +23,14 @@ import './Hooks.css';
 
 const Hooks = () => {
     const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        document.title = `Title changed : ${count}`;
+        return (() => {
+            document.title = 'ReactJS Hello world';
+        })
+    })
+
 
     return (
         <div className="p-hooks">
